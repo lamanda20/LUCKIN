@@ -1,0 +1,373 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /tauxIss:
+    get:
+      summary: List all tauxIss
+      operationId: listTauxIss
+      tags:
+        - tauxIss
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of tauxIss
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TauxIss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a tauxIs
+      operationId: createTauxIss
+      tags:
+        - tauxIss
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /tauxIss/{tauxIsId}:
+    get:
+      summary: Info for a specific tauxIs
+      operationId: showTauxIsById
+      tags:
+        - tauxIss
+      parameters:
+        - name: tauxIsId
+          in: path
+          required: true
+          description: The id of the tauxIs to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TauxIss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paiementTaxeIss:
+    get:
+      summary: List all paiementTaxeIss
+      operationId: listPaiementTaxeIss
+      tags:
+        - paiementTaxeIss
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of paiementTaxeIss
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/PaiementTaxeIss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a paiementTaxeIs
+      operationId: createPaiementTaxeIss
+      tags:
+        - paiementTaxeIss
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /paiementTaxeIss/{paiementTaxeIsId}:
+    get:
+      summary: Info for a specific paiementTaxeIs
+      operationId: showPaiementTaxeIsById
+      tags:
+        - paiementTaxeIss
+      parameters:
+        - name: paiementTaxeIsId
+          in: path
+          required: true
+          description: The id of the paiementTaxeIs to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/PaiementTaxeIss'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /villes:
+    get:
+      summary: List all villes
+      operationId: listVilles
+      tags:
+        - villes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of villes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Villes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a ville
+      operationId: createVilles
+      tags:
+        - villes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /villes/{villeId}:
+    get:
+      summary: Info for a specific ville
+      operationId: showVilleById
+      tags:
+        - villes
+      parameters:
+        - name: villeId
+          in: path
+          required: true
+          description: The id of the ville to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Villes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /societes:
+    get:
+      summary: List all societes
+      operationId: listSocietes
+      tags:
+        - societes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of societes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Societes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a societe
+      operationId: createSocietes
+      tags:
+        - societes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /societes/{societeId}:
+    get:
+      summary: Info for a specific societe
+      operationId: showSocieteById
+      tags:
+        - societes
+      parameters:
+        - name: societeId
+          in: path
+          required: true
+          description: The id of the societe to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Societes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  TauxIs:
+    type: "object"
+    required:
+      - id
+      - code
+      - montantMin
+      - montantMax
+      - pourcentage
+      - dateMin
+      - dateMax
+      - dateApplicationMin
+      - dateApplicationMax
+      - montantRetard
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      montantMin:
+        type: number
+      montantMax:
+        type: number
+      pourcentage:
+        type: number
+      dateMin:
+        type: date
+      dateMax:
+        type: date
+      dateApplicationMin:
+        type: date
+      dateApplicationMax:
+        type: date
+      montantRetard:
+        type: number
+  TauxIss:
+    type: array
+    items:
+      $ref: '#/definitions/TauxIs'
+  PaiementTaxeIs:
+    type: "object"
+    required:
+      - id
+      - code
+      - annee
+      - totalCharge
+      - totalProduit
+      - resAvantImpo
+      - resApreImpot
+      - montantIs
+      - datePresentation
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      annee:
+        type: int
+      totalCharge:
+        type: number
+      totalProduit:
+        type: number
+      resAvantImpo:
+        type: number
+      resApreImpot:
+        type: number
+      montantIs:
+        type: number
+      datePresentation:
+        type: date
+  PaiementTaxeIss:
+    type: array
+    items:
+      $ref: '#/definitions/PaiementTaxeIs'
+  Ville:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+  Villes:
+    type: array
+    items:
+      $ref: '#/definitions/Ville'
+  Societe:
+    type: "object"
+    required:
+      - id
+      - identifiantFiscal
+      - ice
+      - nom
+      - rc
+    properties:
+      id:
+        type: int
+      identifiantFiscal:
+        type: string
+      ice:
+        type: string
+      nom:
+        type: string
+      rc:
+        type: string
+  Societes:
+    type: array
+    items:
+      $ref: '#/definitions/Societe'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

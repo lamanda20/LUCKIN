@@ -1,0 +1,16 @@
+{
+    "identifiantFiscal": "#string",
+    "ice": "#string",
+    "nom": "#string",
+    "rc": "#string",
+    "ville": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

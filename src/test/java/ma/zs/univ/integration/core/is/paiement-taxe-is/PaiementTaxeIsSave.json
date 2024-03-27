@@ -1,0 +1,20 @@
+{
+    "code": "code-1",
+    "annee": "10",
+    "totalCharge": "10",
+    "totalProduit": "10",
+    "resAvantImpo": "10",
+    "resApreImpot": "10",
+    "montantIs": "10",
+    "societe": {"id": "1"},
+    "tauxIs": {"id": "1"}
+
+}
+
+
+
+
+
+
+
+

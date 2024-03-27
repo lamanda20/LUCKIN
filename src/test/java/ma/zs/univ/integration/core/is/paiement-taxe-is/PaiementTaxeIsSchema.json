@@ -1,0 +1,20 @@
+{
+    "code": "#string",
+    "annee": "#number",
+    "totalCharge": "#number",
+    "totalProduit": "#number",
+    "resAvantImpo": "#number",
+    "resApreImpot": "#number",
+    "montantIs": "#number",
+    "societe": {"id": "#number"},
+    "tauxIs": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+
